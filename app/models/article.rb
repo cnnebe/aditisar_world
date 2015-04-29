@@ -4,7 +4,7 @@ class Article < ActiveRecord::Base
 
 	validates_presence_of :title, :content
 
-	scope :active, where('active = ?', true)
-  	scope :alphabetical, order(:title)
+	scope :active, -> {where('active = ?', true)}
+  	scope :alphabetical, -> { order(:title) }
 
 end
